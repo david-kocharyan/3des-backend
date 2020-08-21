@@ -20,7 +20,7 @@ class FaqController extends Controller
     {
         $title = self::TITLE;
         $route = self::ROUTE;
-        $data = Faq::orderBy('id', 'ASC')->get();
+        $data = Faq::orderBy('id', 'ASC')->paginate(10);
         return view(self::FOLDER . ".index", compact('title', 'route', 'data'));
     }
 
