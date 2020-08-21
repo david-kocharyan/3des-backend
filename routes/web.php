@@ -22,6 +22,7 @@ Route::post('/admin-logout', 'Auth\AdminLoginController@logout')->name('admin.lo
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function () {
 
     Route::get('/', 'AdminController@index')->name('admin.home');
+    Route::resource('/faqs', 'FaqController');
 
 });
 

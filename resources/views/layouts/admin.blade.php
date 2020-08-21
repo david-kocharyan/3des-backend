@@ -94,7 +94,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/faq" class="nav-link">
+                        <a href="/faqs" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 FAQ
@@ -168,8 +168,12 @@
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- SWAL -->
+<script src="{{asset('admin/plugins/swal/sweetalert.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin/dist/js/adminlte.js')}}"></script>
+<!-- Custom JS -->
+<script src="{{asset('admin/dist/js/custom.js')}}"></script>
 
 @stack('footer')
 </html>
