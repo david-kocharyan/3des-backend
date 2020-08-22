@@ -1,64 +1,65 @@
 @extends('layouts.admin')
-
 @section('content')
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">{{$title}}</h3>
 
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm">
-                            <a class="btn btn-outline-secondary" href="{{$route."/create"}}">Create</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Question</th>
-                            <th>Answer</th>
-                            <th>Options</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($data as $key=>$val)
-                            <tr>
-                                <td>{{$key + 1}}</td>
-                                <td>{{$val->question}}</td>
-                                <td>{{$val->answer}}</td>
-                                <td>
-                                    <a href="{{$route."/".$val->id."/edit"}}" data-toggle="tooltip"
-                                       data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-
-                                    <form style="display: inline-block" action="{{ $route."/".$val->id }}" method="post">
-                                        @csrf
-                                        @method("DELETE")
-                                        <a href="javascript:void(0);" data-text="{{ $title }}" class="delete_form" data-id ="{{$val->id}}">
-                                            <button data-toggle="tooltip"
-                                                    data-placement="top" title="Remove"
-                                                    class="btn btn-danger btn-circle tooltip-danger"><i
-                                                    class="fas fa-trash"></i></button>
-                                        </a>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                    {{$data->links('vendor.pagination.bootstrap-4')}}
-                </div>
+    <div class="col-md-12">
+        <!-- general form elements disabled -->
+        <div class="card card-warning">
+            <div class="card-header">
+                <h3 class="card-title text-uppercase">{{$title}}</h3>
             </div>
-            <!-- /.card -->
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form method="post" action="{{$route}}"
+                      enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="form-group">
+                        <label>Subject</label>
+                        @error('subject')
+                        <p class="text-danger" role="alert">
+                            <i class="far fa-times-circle"></i>
+                            <strong>{{ $message }}</strong>
+                        </p>
+                        @enderror
+                        <input type="text" name="subject" class="form-control @error('subject') is-invalid @enderror"
+                               placeholder="Subject ..." value="{{ old('subject')}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        @error('message')
+                        <p class="text-danger" role="alert">
+                            <i class="far fa-times-circle"></i>
+                            <strong>{{ $message }}</strong>
+                        </p>
+                        @enderror
+                        <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="10"
+                                  placeholder="Message ..."
+                                  style="resize: none">{{old('message')}}</textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning col-md-12">Send</button>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
+
+@push('header')
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{asset('admin/plugins/toastr/toastr.min.css')}}">
+@endpush
+
+@push('footer')
+    <!-- Toastr -->
+    <script src="{{asset('admin/plugins/toastr/toastr.min.js')}}"></script>
+    <script !src="">
+        $(document).ready(function () {
+            var message = "{{Session::get('message')}}";
+            if (message != "") {
+                toastr.success(message)
+            }
+        });
+    </script>
+@endpush
