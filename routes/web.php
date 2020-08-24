@@ -24,6 +24,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::get('/', 'AdminController@index')->name('admin.home');
     Route::resource('/faqs', 'FaqController');
     Route::resource('/subscribers', 'SubscriberController');
+    Route::resource('/contact-us', 'ContactController');
 
 });
 
