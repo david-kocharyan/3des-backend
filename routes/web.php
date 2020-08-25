@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::resource('/faqs', 'FaqController');
     Route::resource('/subscribers', 'SubscriberController');
     Route::resource('/contact-us', 'ContactController');
+    Route::resource('/video', 'VideoController');
 
 });
 

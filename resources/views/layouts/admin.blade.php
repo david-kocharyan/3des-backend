@@ -68,7 +68,7 @@
 
                     <li class="nav-item">
                         <a href="/contact-us" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-phone-alt"></i>
                             <p>
                                 Contact Us
                             </p>
@@ -77,7 +77,7 @@
 
                     <li class="nav-item">
                         <a href="/subscribers" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-share-alt"></i>
                             <p>
                                 Subscribers
                             </p>
@@ -86,16 +86,16 @@
 
                     <li class="nav-item">
                         <a href="/video" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-video"></i>
                             <p>
-                                Add Video
+                                Video
                             </p>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="/faqs" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-question"></i>
                             <p>
                                 FAQ
                             </p>
@@ -104,7 +104,7 @@
 
                     <li class="nav-item">
                         <a href="/partners" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-handshake"></i>
                             <p>
                                 Partners
                             </p>
@@ -113,7 +113,7 @@
 
                     <li class="nav-item">
                         <a href="/coupons" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fas fa-percent"></i>
                             <p>
                                 Coupons
                             </p>
