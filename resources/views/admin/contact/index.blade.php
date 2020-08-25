@@ -18,6 +18,7 @@
                             <th>Last Name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Type</th>
                             <th>Options</th>
                         </tr>
                         </thead>
@@ -30,19 +31,23 @@
                                 <td>{{$val->email}}</td>
                                 <td>{{$val->phone}}</td>
                                 <td>
-                                    <a href="{{$route."/".$val->id."/edit"}}" data-toggle="tooltip"
-                                       data-placement="top" title="Edit" class="btn btn-info btn-circle tooltip-info">
+                                    <span class="badge @if($val->type == 0) badge-danger @else badge-success @endif">{{\App\Models\Contact::TYPE[$val->type]}}</span>
+                                </td>
+                                <td>
+                                    <a href="{{$route."/".$val->id."/edit"}}" title="Edit"
+                                       class="btn btn-success btn-circle">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <form style="display: inline-block" action="{{ $route."/".$val->id }}" method="post">
+                                    <form style="display: inline-block" action="{{ $route."/".$val->id }}"
+                                          method="post">
                                         @csrf
                                         @method("DELETE")
-                                        <a href="javascript:void(0);" data-text="{{ $title }}" class="delete_form" data-id ="{{$val->id}}">
-                                            <button data-toggle="tooltip"
-                                                    data-placement="top" title="Remove"
-                                                    class="btn btn-danger btn-circle tooltip-danger"><i
-                                                    class="fas fa-trash"></i></button>
+                                        <a href="javascript:void(0);" data-text="{{ $title }}" class="delete_form"
+                                           data-id="{{$val->id}}">
+                                            <button title="Remove" class="btn btn-danger btn-circle"><i
+                                                    class="fas fa-trash"></i>
+                                            </button>
                                         </a>
                                     </form>
                                 </td>
@@ -60,3 +65,21 @@
         </div>
     </div>
 @endsection
+
+@push('header')
+    <!-- Toastr -->
+    <link rel="stylesheet" href="{{asset('admin/plugins/toastr/toastr.min.css')}}">
+@endpush
+
+@push('footer')
+    <!-- Toastr -->
+    <script src="{{asset('admin/plugins/toastr/toastr.min.js')}}"></script>
+    <script !src="">
+        $(document).ready(function () {
+            var message = "{{Session::get('message')}}";
+            if (message != "") {
+                toastr.success(message)
+            }
+        });
+    </script>
+@endpush

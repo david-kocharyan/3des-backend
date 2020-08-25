@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-    CONST TYPE = array("Answered" => 1, "Wait"=>2);
+    CONST TYPE = array(0 => "Wait", 1 => "Answered");
 }

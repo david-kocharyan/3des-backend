@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ContactController extends Controller
 {
@@ -14,20 +15,18 @@ class ContactController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $data  = Contact::orderBy('type')->paginate(10);
+        $data = Contact::orderBy('type')->paginate(10);
         $title = self::TITLE;
         $route = self::ROUTE;
-        return view(self::FOLDER.".index", compact('title', 'route', 'data'));
+        return view(self::FOLDER . ".index", compact('title', 'route', 'data'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -37,8 +36,7 @@ class ContactController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -48,8 +46,7 @@ class ContactController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Contact  $contact
+     * @param \App\Models\Contact $contact
      * @return \Illuminate\Http\Response
      */
     public function show(Contact $contact)
@@ -59,35 +56,49 @@ class ContactController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Contact  $contact
+     * @param \App\Models\Contact $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $data = Contact::where('id', $id)->first();
+        $title = "Reply to messages";
+        $route = self::ROUTE;
+        return view(self::FOLDER . '.reply', compact('title', 'route', 'data'));
     }
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Contact      $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'answer' => 'required',
+            'subject' => 'required'
+        ]);
+
+        $contact = Contact::where('id', $id)->first();
+        $details = array('email' => $contact->email, 'subject' => $request->subject, 'message' => $request->answer);
+        \App\Jobs\Contact::dispatch($details);
+
+        $contact->type = 1;
+        $contact->save();
+
+        Session::flash('message', 'Message sent successfully!');
+        return redirect(self::ROUTE);
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contact  $contact
+     * @param \App\Models\Contact $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        Contact::destroy($id);
+        return redirect(self::ROUTE);
     }
 }
