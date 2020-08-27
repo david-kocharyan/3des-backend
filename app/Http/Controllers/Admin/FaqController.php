@@ -74,7 +74,7 @@ class FaqController extends Controller
     public function edit(Faq $faq)
     {
         $title = self::TITLE;
-        $action = "Create";
+        $action = "Edit";
         $route = self::ROUTE;
         $data = $faq;
         return view(self::FOLDER . ".create_edit", compact('title', 'route', 'action', 'data'));

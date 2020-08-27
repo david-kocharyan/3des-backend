@@ -27,5 +27,8 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::resource('/contact-us', 'ContactController');
     Route::resource('/video', 'VideoController');
 
+    Route::resource('/coupons', 'CouponController');
+    Route::post('/coupons/{id}/disable', 'CouponController@disable');
+
 });
 
