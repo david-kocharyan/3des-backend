@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::group(['namespace' => 'Api', "prefix" => "v1"], function () {
+    Route::post('contact-store', 'ContactController@store');
+    Route::post('subscriber-store', 'SubscribeController@store');
+    Route::get('faq-get', 'FaqController@index');
+    Route::get('video-get', 'VideoController@index');
 });
