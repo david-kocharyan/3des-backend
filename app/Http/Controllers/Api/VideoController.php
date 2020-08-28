@@ -14,9 +14,9 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $data = Video::selectRaw("link")->orderBy("id", "ASC")->first();
+        $data = Video::selectRaw("CONCAT('uploads','/',link) AS link'")->orderBy("id", "ASC")->first();
         if (null == $data) {
-            return ResponseHelper::fail("FAQ Not Found", 422);
+            return ResponseHelper::fail("Video Not Found", 422);
         }
         $resp = array(
             "video" => $data
