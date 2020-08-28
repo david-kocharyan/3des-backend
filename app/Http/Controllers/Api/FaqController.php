@@ -16,7 +16,7 @@ class FaqController extends Controller
     public function index()
     {
         $data = Faq::selectRaw("question, answer")->orderBy("id", "ASC")->get();
-        if (null == $data) {
+        if ($data->isEmpty()) {
             return ResponseHelper::fail("FAQ Not Found", 422);
         }
         $resp = array(
