@@ -20,7 +20,7 @@ class SubscribeController extends Controller
         $validator = Validator::make($data,
             [
                 'name' => 'required|max:191',
-                'email' => 'required|email',
+                'email' => 'required|email|unique:subscribers',
             ]);
 
         if ($validator->fails()) {
