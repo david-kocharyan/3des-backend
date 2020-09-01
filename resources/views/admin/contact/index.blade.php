@@ -34,7 +34,7 @@
                                     <span class="badge @if($val->type == 0) badge-danger @else badge-success @endif">{{\App\Models\Contact::TYPE[$val->type]}}</span>
                                 </td>
                                 <td>
-                                    <a href="{{$route."/".$val->id."/edit"}}" title="Edit"
+                                    <a href="{{$route."/".$val->id."/edit"}}" title="Answer"
                                        class="btn btn-success btn-circle">
                                         <i class="fas fa-edit"></i>
                                     </a>
