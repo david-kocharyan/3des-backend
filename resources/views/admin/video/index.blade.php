@@ -43,21 +43,31 @@
             </div>
 
             @if(isset($data->link) and $data->link != null)
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Video</h3>
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Video</h3>
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <video controls src="{{asset('uploads/'.$data->link)}}"></video>
                     </div>
                 </div>
-                <div class="card-body text-center">
-                    <video controls src="{{asset('uploads/'.$data->link)}}"></video>
-                </div>
-            </div>
             @endif
         </div>
     </div>
 @endsection
+
+
+@push('footer')
+    <script src="{{asset('admin/plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+    <script !src="">
+        $(function () {
+            bsCustomFileInput.init();
+        });
+    </script>
+@endpush
