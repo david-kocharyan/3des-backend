@@ -22,6 +22,7 @@ class AuthController extends Controller
     public function signup(Request $request)
     {
         $data = json_decode($request->getContent(), true);
+        dd($data);
         $validator = Validator::make($data,
             [
                 'full_name' => 'required|max:100',

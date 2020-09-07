@@ -30,7 +30,6 @@ Route::group(['namespace' => 'Api', "prefix" => "v1"], function () {
         });
     });
 
-
     Route::post('contact-store', 'ContactController@store');
     Route::post('subscriber-store', 'SubscribeController@store');
     Route::get('faq-get', 'FaqController@index');
