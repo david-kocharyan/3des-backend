@@ -19,6 +19,18 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::group(['namespace' => 'Api', "prefix" => "v1"], function () {
+
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('signin', 'AuthController@login');
+        Route::post('signup', 'AuthController@signup');
+
+        Route::group(['middleware' => 'auth:api'], function() {
+            Route::get('logout', 'AuthController@logout');
+            Route::get('get-user', 'AuthController@user');
+        });
+    });
+
+
     Route::post('contact-store', 'ContactController@store');
     Route::post('subscriber-store', 'SubscribeController@store');
     Route::get('faq-get', 'FaqController@index');
