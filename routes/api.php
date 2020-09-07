@@ -22,7 +22,7 @@ Route::group(['namespace' => 'Api', "prefix" => "v1"], function () {
 
     Route::group(['prefix' => 'user'], function () {
         Route::post('sign-up', 'AuthController@signup');
-        Route::post('signin', 'AuthController@login');
+        Route::post('sign-in', 'AuthController@login');
 
         Route::group(['middleware' => 'auth:api'], function() {
             Route::get('logout', 'AuthController@logout');
