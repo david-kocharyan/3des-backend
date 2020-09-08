@@ -30,5 +30,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::resource('/coupons', 'CouponController');
     Route::post('/coupons/{id}/disable', 'CouponController@disable');
 
+    Route::resource('/partners', 'PartnerController');
+
 });
 
