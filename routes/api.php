@@ -31,6 +31,11 @@ Route::group(['namespace' => 'Api', "prefix" => "v1"], function () {
         });
     });
 
+    Route::group(['prefix' => 'reset'], function () {
+        Route::post('send-mail', 'PasswordReset@getMail');
+        Route::post('password', 'PasswordReset@changePassword');
+    });
+
     Route::post('contact-store', 'ContactController@store');
     Route::post('subscriber-store', 'SubscribeController@store');
     Route::get('faq-get', 'FaqController@index');
