@@ -17,6 +17,19 @@
                         @method("PUT")
                     @endif
 
+                    @if(!isset($data))
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        @error('full_name')
+                        <p class="text-danger" role="alert">
+                            <i class="far fa-times-circle"></i>
+                            <strong>{{ $message }}</strong>
+                        </p>
+                        @enderror
+                        <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror"
+                               placeholder="Full Name ..." value="{{ $data->full_name ?? old('full_name')}}">
+                    </div>
+
                     <div class="form-group">
                         <label>Email</label>
                         @error('email')
@@ -57,6 +70,7 @@
                         <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"
                                placeholder="Phone ..." value="{{ $data->phone ?? old('phone')}}">
                     </div>
+                    @endif
 
                     {{---------Partner part---------}}
                     <div class="form-group">
@@ -68,7 +82,7 @@
                         </p>
                         @enderror
                         <input type="text" name="company" class="form-control @error('company') is-invalid @enderror"
-                               placeholder="Company ..." value="{{ $data->parent->company ?? old('company')}}">
+                               placeholder="Company ..." value="{{ $data->partner->company ?? old('company')}}">
                     </div>
 
                     <div class="form-group">
@@ -80,7 +94,7 @@
                         </p>
                         @enderror
                         <input type="text" name="country" class="form-control @error('country') is-invalid @enderror"
-                               placeholder="Country ..." value="{{ $data->parent->country ?? old('country')}}">
+                               placeholder="Country ..." value="{{ $data->partner->country ?? old('country')}}">
                     </div>
 
                     <div class="form-group">
@@ -92,7 +106,7 @@
                         </p>
                         @enderror
                         <input type="text" name="state" class="form-control @error('state') is-invalid @enderror"
-                               placeholder="State ..." value="{{ $data->parent->state ?? old('state')}}">
+                               placeholder="State ..." value="{{ $data->partner->state ?? old('state')}}">
                     </div>
 
                     <div class="form-group">
@@ -104,7 +118,7 @@
                         </p>
                         @enderror
                         <input type="text" name="city" class="form-control @error('city') is-invalid @enderror"
-                               placeholder="City ..." value="{{ $data->parent->city ?? old('city')}}">
+                               placeholder="City ..." value="{{ $data->partner->city ?? old('city')}}">
                     </div>
 
                     <div class="form-group">
@@ -116,7 +130,7 @@
                         </p>
                         @enderror
                         <input type="text" name="street" class="form-control @error('street') is-invalid @enderror"
-                               placeholder="Street ..." value="{{ $data->parent->street ?? old('street')}}">
+                               placeholder="Street ..." value="{{ $data->partner->street ?? old('street')}}">
                     </div>
 
                     <div class="form-group">
@@ -128,7 +142,7 @@
                         </p>
                         @enderror
                         <input type="text" name="zip" class="form-control @error('zip') is-invalid @enderror"
-                               placeholder="Zip ..." value="{{ $data->parent->state ?? old('zip')}}">
+                               placeholder="Zip ..." value="{{ $data->partner->state ?? old('zip')}}">
                     </div>
 
                     <button type="submit" class="btn col-md-12" style="background-color: #6f42c1; color: white;">Save</button>

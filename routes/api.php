@@ -27,6 +27,7 @@ Route::group(['namespace' => 'Api', "prefix" => "v1"], function () {
         Route::group(['middleware' => 'auth:api'], function() {
             Route::get('logout', 'AuthController@logout');
             Route::get('get-user', 'AuthController@user');
+            Route::get('get-partner', 'AuthController@partner');
         });
     });
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helper\ResponseHelper;
 use App\Http\Controllers\Controller;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -134,6 +135,15 @@ class AuthController extends Controller
         return ResponseHelper::success($user);
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function partner()
+    {
+        $user_id = Auth::guard('api')->user()->id;
+        $partner = Partner::selectRaw('id, company, country, state, city, street, zip')->where('user_id', $user_id)->first();
+        return ResponseHelper::success($partner);
+    }
 
 
 
