@@ -40,4 +40,5 @@ Route::group(['namespace' => 'Api', "prefix" => "v1"], function () {
     Route::post('subscriber-store', 'SubscribeController@store');
     Route::get('faq-get', 'FaqController@index');
     Route::get('video-get', 'VideoController@index');
+    Route::get('shipping-get', 'ShippingController@index');
 });

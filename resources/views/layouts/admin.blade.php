@@ -120,6 +120,25 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tools"></i>
+                            <p>
+                                Settings
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            <li class="nav-item">
+                                <a href="/shipping-methods" class="nav-link">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    <p>Shipping Methods</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
                 </ul>
             </nav>
         </div>
