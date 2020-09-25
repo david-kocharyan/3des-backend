@@ -36,9 +36,17 @@ Route::group(['namespace' => 'Api', "prefix" => "v1"], function () {
         Route::post('password', 'PasswordReset@changePassword');
     });
 
+    Route::group(['prefix' => 'taxes'], function () {
+        Route::get('country-get', 'TaxController@getCountries');
+        Route::get('state-get', 'TaxController@getState');
+        Route::post('calculate', 'TaxController@taxCalculate');
+    });
+
     Route::post('contact-store', 'ContactController@store');
     Route::post('subscriber-store', 'SubscribeController@store');
     Route::get('faq-get', 'FaqController@index');
     Route::get('video-get', 'VideoController@index');
     Route::get('shipping-get', 'ShippingController@index');
+    Route::post('promo-code', 'PromoCodeController@index');
+
 });
