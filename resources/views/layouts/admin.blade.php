@@ -135,6 +135,13 @@
                                     <p>Shipping Methods</p>
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a href="/taxes" class="nav-link">
+                                    <i class="fas fa-percent"></i>
+                                    <p>Taxes</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

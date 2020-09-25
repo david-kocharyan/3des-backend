@@ -33,5 +33,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth:admin'], function ()
     Route::resource('/partners', 'PartnerController');
     Route::resource('/shipping-methods', 'ShippingMethodController');
 
+    Route::resource('/taxes', 'TaxController');
+    Route::get('/getStates/{id}','TaxController@getStates');
 });
 
