@@ -29,6 +29,9 @@ class PromoCodeController extends Controller
         if ($promo == null) {
             return ResponseHelper::fail("No Such Coupon Exists! Please Enter Valid Code.", ResponseHelper::UNPROCESSABLE_ENTITY_EXPLAINED);
         }
+        if ($promo->type == 0) {
+            return ResponseHelper::fail("Coupon Expired!", ResponseHelper::UNPROCESSABLE_ENTITY_EXPLAINED);
+        }
 
         $startDate = Carbon::createFromFormat('Y-m-d',$promo->start);
         $endDate = Carbon::createFromFormat('Y-m-d',$promo->finish);
