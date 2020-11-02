@@ -13,15 +13,17 @@ class FaqController extends Controller
     /**
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Faq::selectRaw("question, answer")->orderBy("id", "ASC")->get();
+        $limit = !is_numeric($request->limit) ? 10 : $request->limit;
+
+        $data = Faq::selectRaw("question, answer")->orderBy("id", "ASC")->paginate($limit);
         if ($data->isEmpty()) {
             return ResponseHelper::fail("FAQ Not Found", 422);
         }
         $resp = array(
             "faq" => $data
         );
-        return ResponseHelper::success($resp);
+        return ResponseHelper::success($resp, true);
     }
 }
