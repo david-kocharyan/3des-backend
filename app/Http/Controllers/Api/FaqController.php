@@ -17,13 +17,11 @@ class FaqController extends Controller
     {
         $limit = !is_numeric($request->limit) ? 10 : $request->limit;
 
-        $data = Faq::selectRaw("question, answer")->orderBy("id", "ASC")->paginate($limit);
-        if ($data->isEmpty()) {
+        $faq = Faq::selectRaw("question, answer")->orderBy("id", "ASC")->paginate($limit);
+        if ($faq->isEmpty()) {
             return ResponseHelper::fail("FAQ Not Found", 422);
         }
-        $resp = array(
-            "faq" => $data
-        );
-        return ResponseHelper::success($resp, true);
+
+        return ResponseHelper::success($faq, true);
     }
 }
