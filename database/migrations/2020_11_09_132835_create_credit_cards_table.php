@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePartnersTable extends Migration
+class CreateCreditCardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreatePartnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('partners', function (Blueprint $table) {
+        Schema::create('credit_cards', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("user_id");
-            $table->string("company", 191);
-            $table->string("country", 191);
-            $table->string("state", 191)->comment("State / Province");
-            $table->string("city", 191);
-            $table->string("street", 191);
-            $table->string("zip", 191)->comment("Postal code / Zip code");
+            $table->string('number');
+            $table->integer('expiration_month');
+            $table->integer('expiration_year');
+            $table->string('cardholder_name');
+            $table->integer('cvv');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
@@ -35,6 +34,6 @@ class CreatePartnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('partners');
+        Schema::dropIfExists('credit_cards');
     }
 }

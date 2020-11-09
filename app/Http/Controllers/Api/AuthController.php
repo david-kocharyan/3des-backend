@@ -136,43 +136,61 @@ class AuthController extends Controller
     }
 
     /**
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function partner()
+    public function edit(Request $request)
     {
-        $user_id = Auth::guard('api')->user()->id;
-        $partner = Partner::selectRaw('id, company, country, state, city, street, zip')->where('user_id', $user_id)->first();
-        return ResponseHelper::success($partner);
+        $user = Auth::guard('api')->user();
+        $data = json_decode($request->getContent(), true);
+
+        $validator = Validator::make($data,
+            [
+                'email' => 'required|email|unique:users,email,' . $user->id,
+                'full_name' => 'required|string',
+                'phone' => 'required'
+            ]);
+
+        if ($validator->fails()) {
+            return ResponseHelper::fail($validator->errors()->first(), ResponseHelper::UNPROCESSABLE_ENTITY_EXPLAINED);
+        }
+
+        $user->email = $data['email'];
+        $user->full_name = $data['full_name'];
+        $user->phone = $data['phone'];
+        $user->save();
+
+        return ResponseHelper::success($user);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function changePassword(Request $request)
+    {
+        $user = Auth::guard('api')->user();
+        $data = json_decode($request->getContent(), true);
 
+        $validator = Validator::make($data,
+            [
+                'current_password' => 'required',
+                'password' => 'required|same:password',
+                'password_confirmation' => 'required|same:password',
+            ]);
 
+        if ($validator->fails()) {
+            return ResponseHelper::fail($validator->errors()->first(), ResponseHelper::UNPROCESSABLE_ENTITY_EXPLAINED);
+        }
 
+        $current_password = $user->password;
+        if(!Hash::check($data['current_password'], $current_password)){
+            return ResponseHelper::fail("Yor Current Password Is Wrong, Please Enter Valid Password!", ResponseHelper::UNPROCESSABLE_ENTITY_EXPLAINED);
+        }
 
-//    public function resetPassword(Request $request)
-//    {
-//        $validator = Validator::make($request->all(),
-//            [
-//                'email' => 'required|regex:/(.+)@(.+)\.(.+)/i',
-//            ]);
-//        if ($validator->fails()) {
-//            return ResponseHelper::fail($validator->errors()->first(), ResponseHelper::UNPROCESSABLE_ENTITY_EXPLAINED);
-//        }
-//
-//        $user = User::where(['email' => $request->email])->first();
-//        if (null == $user) {
-//            return ResponseHelper::fail("Wrong email provided", 403);
-//        }
-//
-//        $pass = uniqid();
-//        $user->password = bcrypt($pass);
-//        $user->save();
-//
-//        $email = MailHelper::send($request->email, "TayRaRam $pass");
-//        if (!$email) {
-//            return ResponseHelper::fail("Something Went Wrong", 422);
-//        }
-//
-//        return ResponseHelper::success(array());
-//    }
+        $user->password = Hash::make($data['password']);
+        $user->save();
+        return ResponseHelper::success(array(), false, "Your Password Changed Successfully!");
+    }
+
 }

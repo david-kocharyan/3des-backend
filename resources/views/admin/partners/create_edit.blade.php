@@ -18,58 +18,61 @@
                     @endif
 
                     @if(!isset($data))
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        @error('full_name')
-                        <p class="text-danger" role="alert">
-                            <i class="far fa-times-circle"></i>
-                            <strong>{{ $message }}</strong>
-                        </p>
-                        @enderror
-                        <input type="text" name="full_name" class="form-control @error('full_name') is-invalid @enderror"
-                               placeholder="Full Name ..." value="{{ $data->full_name ?? old('full_name')}}">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Email</label>
-                        @error('email')
-                        <p class="text-danger" role="alert">
-                            <i class="far fa-times-circle"></i>
-                            <strong>{{ $message }}</strong>
-                        </p>
-                        @enderror
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                               placeholder="Email ..." value="{{ $data->email ?? old('email')}}">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Password <span class="text-danger">(Min. characters` 8)</span></label>
-                        @error('password')
-                        <p class="text-danger" role="alert">
-                            <i class="far fa-times-circle"></i>
-                            <strong>{{ $message }}</strong>
-                        </p>
-                        @enderror
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="password input-group-text" style="cursor: pointer"><i class="fas fa-redo-alt"></i></span>
-                            </div>
-                            <input type="text" name="password" id="password" class="form-control @error('password') is-invalid @enderror"
-                                   placeholder="Password ..." value="{{ $data->password ?? old('password')}}">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            @error('full_name')
+                            <p class="text-danger" role="alert">
+                                <i class="far fa-times-circle"></i>
+                                <strong>{{ $message }}</strong>
+                            </p>
+                            @enderror
+                            <input type="text" name="full_name"
+                                   class="form-control @error('full_name') is-invalid @enderror"
+                                   placeholder="Full Name ..." value="{{ $data->full_name ?? old('full_name')}}">
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Phone</label>
-                        @error('phone')
-                        <p class="text-danger" role="alert">
-                            <i class="far fa-times-circle"></i>
-                            <strong>{{ $message }}</strong>
-                        </p>
-                        @enderror
-                        <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"
-                               placeholder="Phone ..." value="{{ $data->phone ?? old('phone')}}">
-                    </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            @error('email')
+                            <p class="text-danger" role="alert">
+                                <i class="far fa-times-circle"></i>
+                                <strong>{{ $message }}</strong>
+                            </p>
+                            @enderror
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                                   placeholder="Email ..." value="{{ $data->email ?? old('email')}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password <span class="text-danger">(Min. characters` 8)</span></label>
+                            @error('password')
+                            <p class="text-danger" role="alert">
+                                <i class="far fa-times-circle"></i>
+                                <strong>{{ $message }}</strong>
+                            </p>
+                            @enderror
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="password input-group-text" style="cursor: pointer"><i
+                                            class="fas fa-redo-alt"></i></span>
+                                </div>
+                                <input type="text" name="password" id="password"
+                                       class="form-control @error('password') is-invalid @enderror"
+                                       placeholder="Password ..." value="{{ $data->password ?? old('password')}}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone</label>
+                            @error('phone')
+                            <p class="text-danger" role="alert">
+                                <i class="far fa-times-circle"></i>
+                                <strong>{{ $message }}</strong>
+                            </p>
+                            @enderror
+                            <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror"
+                                   placeholder="Phone ..." value="{{ $data->phone ?? old('phone')}}">
+                        </div>
                     @endif
 
                     {{---------Partner part---------}}
@@ -93,8 +96,14 @@
                             <strong>{{ $message }}</strong>
                         </p>
                         @enderror
-                        <input type="text" name="country" class="form-control @error('country') is-invalid @enderror"
-                               placeholder="Country ..." value="{{ $data->partner->country ?? old('country')}}">
+                        <select name="country" class="country form-control @error('country') is-invalid @enderror"
+                                data-row="0" required>
+                            <option value="">Select Country</option>
+                            @foreach($countries as $key => $val)
+                                <option value="{{$val->id}}"
+                                        @if(isset($data) AND $data->partner->country_id == $val->id ) selected @endif>{{$val->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -105,8 +114,9 @@
                             <strong>{{ $message }}</strong>
                         </p>
                         @enderror
-                        <input type="text" name="state" class="form-control @error('state') is-invalid @enderror"
-                               placeholder="State ..." value="{{ $data->partner->state ?? old('state')}}">
+                        <select name="state" class="state form-control @error('state') is-invalid @enderror" required>
+                            <option value="">Select State</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
@@ -142,10 +152,11 @@
                         </p>
                         @enderror
                         <input type="text" name="zip" class="form-control @error('zip') is-invalid @enderror"
-                               placeholder="Zip ..." value="{{ $data->partner->state ?? old('zip')}}">
+                               placeholder="Zip ..." value="{{ $data->partner->zip ?? old('zip')}}">
                     </div>
 
-                    <button type="submit" class="btn col-md-12" style="background-color: #6f42c1; color: white;">Save</button>
+                    <button type="submit" class="btn col-md-12" style="background-color: #6f42c1; color: white;">Save
+                    </button>
                 </form>
             </div>
         </div>
@@ -170,6 +181,23 @@
                 }
                 return retVal;
             }
-        })
+
+            $(document).on('change', '.country', function () {
+                var country_id = $(this).val();
+                if (country_id) {
+                    $.ajax({
+                        url: "{{url('/getStates')}}/" + country_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function (res) {
+                            $('.state').empty();
+                            $.each(res.states, function (i, states) {
+                                $('.state').append('<option value="' + states.id + '">' + states.name + '</option>');
+                            });
+                        }
+                    });
+                }
+            });
+        });
     </script>
 @endpush

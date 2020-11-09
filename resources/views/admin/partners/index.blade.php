@@ -40,8 +40,8 @@
                                 <td>{{$val->email}}</td>
                                 <td>{{$val->phone}}</td>
                                 <td>{{$val->partner->company}}</td>
-                                <td>{{$val->partner->country}}</td>
-                                <td>{{$val->partner->state}}</td>
+                                <td>{{$val->country->name}}</td>
+                                <td>{{$val->state->name}}</td>
                                 <td>{{$val->partner->city}}</td>
                                 <td>{{$val->partner->street}}</td>
                                 <td>{{$val->partner->zip}}</td>

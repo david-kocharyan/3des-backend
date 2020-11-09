@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Address;
+use App\Models\Country;
 use App\Models\Partner;
+use App\Models\State;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +27,7 @@ class PartnerController extends Controller
     {
         $title = self::TITLE;
         $route = self::ROUTE;
-        $data = User::with('partner')->where("type", User::TYPE["partner"])->paginate(10);
+        $data = User::with(['partner','country','state'])->where("type", User::TYPE["partner"])->paginate(10);
         return view(self::FOLDER . ".index", compact('title', 'route', 'data'));
     }
 
@@ -37,7 +40,8 @@ class PartnerController extends Controller
         $title = self::TITLE;
         $route = self::ROUTE;
         $action = "Create";
-        return view(self::FOLDER . ".create_edit", compact('title', 'route', 'action'));
+        $countries = Country::all();
+        return view(self::FOLDER . ".create_edit", compact('title', 'route', 'action','countries'));
     }
 
     /**
@@ -69,15 +73,15 @@ class PartnerController extends Controller
         $user->type = User::TYPE['partner'];
         $user->save();
 
-        $partner = new Partner;
-        $partner->user_id = $user->id;
-        $partner->company = $request->company;
-        $partner->country = $request->country;
-        $partner->state = $request->state;
-        $partner->city = $request->city;
-        $partner->street = $request->street;
-        $partner->zip = $request->zip;
-        $partner->save();
+        $address = new Address();
+        $address->user_id = $user->id;
+        $address->company = $request->company;
+        $address->country_id = $request->country;
+        $address->state_id = $request->state;
+        $address->city = $request->city;
+        $address->street = $request->street;
+        $address->zip = $request->zip;
+        $address->save();
 
         DB::commit();
 
@@ -108,7 +112,9 @@ class PartnerController extends Controller
         $action = "Edit";
         $route = self::ROUTE;
         $data = User::with("partner")->where("id", $id)->first();
-        return view(self::FOLDER . ".create_edit", compact('title', 'route', 'action', 'data'));
+        $countries = Country::all();
+        $state = State::all();
+        return view(self::FOLDER . ".create_edit", compact('title', 'route', 'action', 'data', 'countries', 'state'));
     }
 
     /**
@@ -128,10 +134,10 @@ class PartnerController extends Controller
             "zip" => "required",
         ]);
 
-        $partner = Partner::where("user_id", $id)->first();
+        $partner = Address::where("user_id", $id)->first();
         $partner->company = $request->company;
-        $partner->country = $request->country;
-        $partner->state = $request->state;
+        $partner->country_id = $request->country;
+        $partner->state_id = $request->state;
         $partner->city = $request->city;
         $partner->street = $request->street;
         $partner->zip = $request->zip;
