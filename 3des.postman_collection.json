@@ -1,0 +1,1253 @@
+{
+	"info": {
+		"_postman_id": "37814f2f-5479-451e-ab40-56ceeaa27faf",
+		"name": "3des",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reset",
+			"item": [
+				{
+					"name": "Reset Pass Send Mail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"davidkocharyan94@gmail.com\"\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://admin.3des.ca/api/v1/reset/send-mail",
+							"protocol": "http",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reset",
+								"send-mail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"123456\",\r\n    \"code\":\"28422406604961408\"\r\n}"
+						},
+						"url": {
+							"raw": "http://admin.3des.ca/api/v1/reset/password",
+							"protocol": "http",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reset",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "For Taxes",
+			"item": [
+				{
+					"name": "Tax Calculate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shipping\":\"10\",\r\n    \"country_id\":\"1\",\r\n    \"state_id\":\"1\",\r\n    \"price\":\"1000\"\r\n}"
+						},
+						"url": {
+							"raw": "http://admin.3des.ca/api/v1/taxes/calculate",
+							"protocol": "http",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"taxes",
+								"calculate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": " User Address",
+			"item": [
+				{
+					"name": "Get address",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjZjNmI1ODcwYjJiYjhhYjEzNDhhZTBiYjkxZWYyNjUzOTdkYzU4YTZlOWEzMTViN2U3YmMwNTMzMzMwYjBhNWExNDkxY2Y1NzBjYjIwMTEiLCJpYXQiOjE2MDQ5MTEyMDQsIm5iZiI6MTYwNDkxMTIwNCwiZXhwIjoxNjM2NDQ3MjA0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.JaGkweX7m7oC6wKw2VZ5LppBkt-NnEwg_iL-Up4yRTuKiJzylh4mqQ0GacPBaUG707aF4Ouu-5S4QOnc8WbNWcoQ751Cj51QapzX7HTJg7iTN8djAQI-xcCC9XEldRw_-iMdubEQZyrfexdRtUJ6-9zVglAHdC9Y0aQFYXzduIDP70_LfabBI0egKdlivVu7SQ-0UIzqVP5ddSchmq9gorauvjoMcPnfwmQa0qqM97VhszPBgYCHCcBYFq8w2LY_vudoA_yZjvioQOy0y9WSlNcZ722-EEHjpHJsg7TUX6Yp4HZq0B5TPSeKwszlZuFJQybIrMTbkUw-_jMeKMH8DbwVME4SmZy12bQGhid0lPwcmUORS7rs4cnyWiz7A2PIjs2IWp4ib55HwL3QZWRVQ-XD9nN8dIFNtdRR_XWU4o3zCw9vWTJaQRIt-3ECT15wiu1NYvQvwUHIhpyRIIkVCJ6DvaDPkfq6DvbKj4pgiy_ybVp5ptY2R4bIcwseMNh9-5R7BgsoKtPP4tVIXyYBZYlXpml5tEEZKX3duTHjexOVn_-9ewBlxxXvLUifqauorq9YwcsJYfNg1Pxg5MS1aAS2gLLRgC2P34Fk-U2jAasNEyEZ2Cf-BR0wjYG9dGyrCOCiJycqaZk_sxydEDjrMV0XNYR2gUfkuUTgwDJZ_TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/get-address",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"get-address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjZjNmI1ODcwYjJiYjhhYjEzNDhhZTBiYjkxZWYyNjUzOTdkYzU4YTZlOWEzMTViN2U3YmMwNTMzMzMwYjBhNWExNDkxY2Y1NzBjYjIwMTEiLCJpYXQiOjE2MDQ5MTEyMDQsIm5iZiI6MTYwNDkxMTIwNCwiZXhwIjoxNjM2NDQ3MjA0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.JaGkweX7m7oC6wKw2VZ5LppBkt-NnEwg_iL-Up4yRTuKiJzylh4mqQ0GacPBaUG707aF4Ouu-5S4QOnc8WbNWcoQ751Cj51QapzX7HTJg7iTN8djAQI-xcCC9XEldRw_-iMdubEQZyrfexdRtUJ6-9zVglAHdC9Y0aQFYXzduIDP70_LfabBI0egKdlivVu7SQ-0UIzqVP5ddSchmq9gorauvjoMcPnfwmQa0qqM97VhszPBgYCHCcBYFq8w2LY_vudoA_yZjvioQOy0y9WSlNcZ722-EEHjpHJsg7TUX6Yp4HZq0B5TPSeKwszlZuFJQybIrMTbkUw-_jMeKMH8DbwVME4SmZy12bQGhid0lPwcmUORS7rs4cnyWiz7A2PIjs2IWp4ib55HwL3QZWRVQ-XD9nN8dIFNtdRR_XWU4o3zCw9vWTJaQRIt-3ECT15wiu1NYvQvwUHIhpyRIIkVCJ6DvaDPkfq6DvbKj4pgiy_ybVp5ptY2R4bIcwseMNh9-5R7BgsoKtPP4tVIXyYBZYlXpml5tEEZKX3duTHjexOVn_-9ewBlxxXvLUifqauorq9YwcsJYfNg1Pxg5MS1aAS2gLLRgC2P34Fk-U2jAasNEyEZ2Cf-BR0wjYG9dGyrCOCiJycqaZk_sxydEDjrMV0XNYR2gUfkuUTgwDJZ_TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"country_id\":\"int\",\r\n    \"state_id\":\"int\",\r\n    \"company\":\"string\",\r\n    \"street\":\"string\",\r\n    \"city\":\"string\",\r\n    \"zip\":\"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/add-address",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"add-address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjZjNmI1ODcwYjJiYjhhYjEzNDhhZTBiYjkxZWYyNjUzOTdkYzU4YTZlOWEzMTViN2U3YmMwNTMzMzMwYjBhNWExNDkxY2Y1NzBjYjIwMTEiLCJpYXQiOjE2MDQ5MTEyMDQsIm5iZiI6MTYwNDkxMTIwNCwiZXhwIjoxNjM2NDQ3MjA0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.JaGkweX7m7oC6wKw2VZ5LppBkt-NnEwg_iL-Up4yRTuKiJzylh4mqQ0GacPBaUG707aF4Ouu-5S4QOnc8WbNWcoQ751Cj51QapzX7HTJg7iTN8djAQI-xcCC9XEldRw_-iMdubEQZyrfexdRtUJ6-9zVglAHdC9Y0aQFYXzduIDP70_LfabBI0egKdlivVu7SQ-0UIzqVP5ddSchmq9gorauvjoMcPnfwmQa0qqM97VhszPBgYCHCcBYFq8w2LY_vudoA_yZjvioQOy0y9WSlNcZ722-EEHjpHJsg7TUX6Yp4HZq0B5TPSeKwszlZuFJQybIrMTbkUw-_jMeKMH8DbwVME4SmZy12bQGhid0lPwcmUORS7rs4cnyWiz7A2PIjs2IWp4ib55HwL3QZWRVQ-XD9nN8dIFNtdRR_XWU4o3zCw9vWTJaQRIt-3ECT15wiu1NYvQvwUHIhpyRIIkVCJ6DvaDPkfq6DvbKj4pgiy_ybVp5ptY2R4bIcwseMNh9-5R7BgsoKtPP4tVIXyYBZYlXpml5tEEZKX3duTHjexOVn_-9ewBlxxXvLUifqauorq9YwcsJYfNg1Pxg5MS1aAS2gLLRgC2P34Fk-U2jAasNEyEZ2Cf-BR0wjYG9dGyrCOCiJycqaZk_sxydEDjrMV0XNYR2gUfkuUTgwDJZ_TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"int address id\",\r\n    \"country_id\":\"int\",\r\n    \"state_id\":\"int\",\r\n    \"company\":\"string\",\r\n    \"street\":\"string\",\r\n    \"city\":\"string\",\r\n    \"zip\":\"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/edit-address",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"edit-address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Address",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjZjNmI1ODcwYjJiYjhhYjEzNDhhZTBiYjkxZWYyNjUzOTdkYzU4YTZlOWEzMTViN2U3YmMwNTMzMzMwYjBhNWExNDkxY2Y1NzBjYjIwMTEiLCJpYXQiOjE2MDQ5MTEyMDQsIm5iZiI6MTYwNDkxMTIwNCwiZXhwIjoxNjM2NDQ3MjA0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.JaGkweX7m7oC6wKw2VZ5LppBkt-NnEwg_iL-Up4yRTuKiJzylh4mqQ0GacPBaUG707aF4Ouu-5S4QOnc8WbNWcoQ751Cj51QapzX7HTJg7iTN8djAQI-xcCC9XEldRw_-iMdubEQZyrfexdRtUJ6-9zVglAHdC9Y0aQFYXzduIDP70_LfabBI0egKdlivVu7SQ-0UIzqVP5ddSchmq9gorauvjoMcPnfwmQa0qqM97VhszPBgYCHCcBYFq8w2LY_vudoA_yZjvioQOy0y9WSlNcZ722-EEHjpHJsg7TUX6Yp4HZq0B5TPSeKwszlZuFJQybIrMTbkUw-_jMeKMH8DbwVME4SmZy12bQGhid0lPwcmUORS7rs4cnyWiz7A2PIjs2IWp4ib55HwL3QZWRVQ-XD9nN8dIFNtdRR_XWU4o3zCw9vWTJaQRIt-3ECT15wiu1NYvQvwUHIhpyRIIkVCJ6DvaDPkfq6DvbKj4pgiy_ybVp5ptY2R4bIcwseMNh9-5R7BgsoKtPP4tVIXyYBZYlXpml5tEEZKX3duTHjexOVn_-9ewBlxxXvLUifqauorq9YwcsJYfNg1Pxg5MS1aAS2gLLRgC2P34Fk-U2jAasNEyEZ2Cf-BR0wjYG9dGyrCOCiJycqaZk_sxydEDjrMV0XNYR2gUfkuUTgwDJZ_TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"int, address id\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/delete-address",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"delete-address"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User Credit Card",
+			"item": [
+				{
+					"name": "Get Credit Card",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjZjNmI1ODcwYjJiYjhhYjEzNDhhZTBiYjkxZWYyNjUzOTdkYzU4YTZlOWEzMTViN2U3YmMwNTMzMzMwYjBhNWExNDkxY2Y1NzBjYjIwMTEiLCJpYXQiOjE2MDQ5MTEyMDQsIm5iZiI6MTYwNDkxMTIwNCwiZXhwIjoxNjM2NDQ3MjA0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.JaGkweX7m7oC6wKw2VZ5LppBkt-NnEwg_iL-Up4yRTuKiJzylh4mqQ0GacPBaUG707aF4Ouu-5S4QOnc8WbNWcoQ751Cj51QapzX7HTJg7iTN8djAQI-xcCC9XEldRw_-iMdubEQZyrfexdRtUJ6-9zVglAHdC9Y0aQFYXzduIDP70_LfabBI0egKdlivVu7SQ-0UIzqVP5ddSchmq9gorauvjoMcPnfwmQa0qqM97VhszPBgYCHCcBYFq8w2LY_vudoA_yZjvioQOy0y9WSlNcZ722-EEHjpHJsg7TUX6Yp4HZq0B5TPSeKwszlZuFJQybIrMTbkUw-_jMeKMH8DbwVME4SmZy12bQGhid0lPwcmUORS7rs4cnyWiz7A2PIjs2IWp4ib55HwL3QZWRVQ-XD9nN8dIFNtdRR_XWU4o3zCw9vWTJaQRIt-3ECT15wiu1NYvQvwUHIhpyRIIkVCJ6DvaDPkfq6DvbKj4pgiy_ybVp5ptY2R4bIcwseMNh9-5R7BgsoKtPP4tVIXyYBZYlXpml5tEEZKX3duTHjexOVn_-9ewBlxxXvLUifqauorq9YwcsJYfNg1Pxg5MS1aAS2gLLRgC2P34Fk-U2jAasNEyEZ2Cf-BR0wjYG9dGyrCOCiJycqaZk_sxydEDjrMV0XNYR2gUfkuUTgwDJZ_TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/get-credit-card",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"get-credit-card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Credit Card",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjZjNmI1ODcwYjJiYjhhYjEzNDhhZTBiYjkxZWYyNjUzOTdkYzU4YTZlOWEzMTViN2U3YmMwNTMzMzMwYjBhNWExNDkxY2Y1NzBjYjIwMTEiLCJpYXQiOjE2MDQ5MTEyMDQsIm5iZiI6MTYwNDkxMTIwNCwiZXhwIjoxNjM2NDQ3MjA0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.JaGkweX7m7oC6wKw2VZ5LppBkt-NnEwg_iL-Up4yRTuKiJzylh4mqQ0GacPBaUG707aF4Ouu-5S4QOnc8WbNWcoQ751Cj51QapzX7HTJg7iTN8djAQI-xcCC9XEldRw_-iMdubEQZyrfexdRtUJ6-9zVglAHdC9Y0aQFYXzduIDP70_LfabBI0egKdlivVu7SQ-0UIzqVP5ddSchmq9gorauvjoMcPnfwmQa0qqM97VhszPBgYCHCcBYFq8w2LY_vudoA_yZjvioQOy0y9WSlNcZ722-EEHjpHJsg7TUX6Yp4HZq0B5TPSeKwszlZuFJQybIrMTbkUw-_jMeKMH8DbwVME4SmZy12bQGhid0lPwcmUORS7rs4cnyWiz7A2PIjs2IWp4ib55HwL3QZWRVQ-XD9nN8dIFNtdRR_XWU4o3zCw9vWTJaQRIt-3ECT15wiu1NYvQvwUHIhpyRIIkVCJ6DvaDPkfq6DvbKj4pgiy_ybVp5ptY2R4bIcwseMNh9-5R7BgsoKtPP4tVIXyYBZYlXpml5tEEZKX3duTHjexOVn_-9ewBlxxXvLUifqauorq9YwcsJYfNg1Pxg5MS1aAS2gLLRgC2P34Fk-U2jAasNEyEZ2Cf-BR0wjYG9dGyrCOCiJycqaZk_sxydEDjrMV0XNYR2gUfkuUTgwDJZ_TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\":\"string\",\r\n    \"expiration_month\":\" integer\",\r\n    \"expiration_year\":\"integer\",\r\n    \"cardholder_name\":\"string\",\r\n    \"cvv\":\"integer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/add-credit-card",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"add-credit-card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Credit Card Copy 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjZjNmI1ODcwYjJiYjhhYjEzNDhhZTBiYjkxZWYyNjUzOTdkYzU4YTZlOWEzMTViN2U3YmMwNTMzMzMwYjBhNWExNDkxY2Y1NzBjYjIwMTEiLCJpYXQiOjE2MDQ5MTEyMDQsIm5iZiI6MTYwNDkxMTIwNCwiZXhwIjoxNjM2NDQ3MjA0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.JaGkweX7m7oC6wKw2VZ5LppBkt-NnEwg_iL-Up4yRTuKiJzylh4mqQ0GacPBaUG707aF4Ouu-5S4QOnc8WbNWcoQ751Cj51QapzX7HTJg7iTN8djAQI-xcCC9XEldRw_-iMdubEQZyrfexdRtUJ6-9zVglAHdC9Y0aQFYXzduIDP70_LfabBI0egKdlivVu7SQ-0UIzqVP5ddSchmq9gorauvjoMcPnfwmQa0qqM97VhszPBgYCHCcBYFq8w2LY_vudoA_yZjvioQOy0y9WSlNcZ722-EEHjpHJsg7TUX6Yp4HZq0B5TPSeKwszlZuFJQybIrMTbkUw-_jMeKMH8DbwVME4SmZy12bQGhid0lPwcmUORS7rs4cnyWiz7A2PIjs2IWp4ib55HwL3QZWRVQ-XD9nN8dIFNtdRR_XWU4o3zCw9vWTJaQRIt-3ECT15wiu1NYvQvwUHIhpyRIIkVCJ6DvaDPkfq6DvbKj4pgiy_ybVp5ptY2R4bIcwseMNh9-5R7BgsoKtPP4tVIXyYBZYlXpml5tEEZKX3duTHjexOVn_-9ewBlxxXvLUifqauorq9YwcsJYfNg1Pxg5MS1aAS2gLLRgC2P34Fk-U2jAasNEyEZ2Cf-BR0wjYG9dGyrCOCiJycqaZk_sxydEDjrMV0XNYR2gUfkuUTgwDJZ_TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"integer\",\r\n}"
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/delete-credit-card",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"delete-credit-card"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Sign Up",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"David Kocharyan\",\r\n    \"email\": \"david@gmail.com\",\r\n    \"phone\": \"+374990999999\",\r\n    \"password\": \"123456789\",\r\n    \"confirm_password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/sign-up",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"david@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}"
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/sign-in",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log Out",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMmMwNzY3ZmMyMTU4NzRiZWRhMjQ5MDEyZjBjNzVlZjk0ZjZlN2QwY2IxN2JkNDkzODk2MWQyZDBlYzViNDI1NDgyYmQwNjlmMzU3ZDdhMjQiLCJpYXQiOjE1OTk0OTY3MDMsIm5iZiI6MTU5OTQ5NjcwMywiZXhwIjoxNjMxMDMyNzAzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.Q6XvuGObXh54M8Hfzu_z61UDwLTxCA8wdh77ImXNTNKfB4XkoVXYeOjaoFWF1CROEKk3PsBbqi3aWXWGiTTMUcuY0f85QkvMN1tEt4qC8890-k-WD0CgUnu-7WS4c2f-XDg2GbUYAtivy622gm2LOhx55fTj0pT_M2HuRgx7Erqz77rp0qj-UYLkY-a9shuT3Wzh3mp8E9JdcBMT9ZIS-pkTvriavxKMCdLtdjOovITPTPsPP20ZIS-Pa_zgpKgWqlDYGTOWsMlWR9RF6H0zyV6R9mY3JJMuFcUwNrl1zb48Kc9mBUIGk5mLWEI4ozj52nWz9_8dJZDcIInm9CGx4i1YtJpDNyV6xdSQsSthL5vU2NaX9E1z6fOV90eslVvzXlXXNmuWJPNLku5DPzU6i2S6rMvo5Zf93OjnBy3ssiHQwJ9ACDnoMzdBIwaOCJ3TJh3NGIxHBeV2eZ0QmcEirmBComrWdfT0OxjwGWwIU9I-jG-7OP_-kZBiPjrYenw4tBRU9hDWbps2_si-oqSMnE1vVOv97bOFUfwzT198KvMJGtAwVlMT9rW_l3wzd_PQH6UY9gFFSX5mHH1bgbekoorfSXEsSeFm7IBL9S6o9G3OovZrdA7hYv58YeyK0dDtH3ZTsSmaVSMwEFGwgcSfROB4tyld_wAYK2zs8YkTJ_o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/logout",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjZjNmI1ODcwYjJiYjhhYjEzNDhhZTBiYjkxZWYyNjUzOTdkYzU4YTZlOWEzMTViN2U3YmMwNTMzMzMwYjBhNWExNDkxY2Y1NzBjYjIwMTEiLCJpYXQiOjE2MDQ5MTEyMDQsIm5iZiI6MTYwNDkxMTIwNCwiZXhwIjoxNjM2NDQ3MjA0LCJzdWIiOiIzIiwic2NvcGVzIjpbXX0.JaGkweX7m7oC6wKw2VZ5LppBkt-NnEwg_iL-Up4yRTuKiJzylh4mqQ0GacPBaUG707aF4Ouu-5S4QOnc8WbNWcoQ751Cj51QapzX7HTJg7iTN8djAQI-xcCC9XEldRw_-iMdubEQZyrfexdRtUJ6-9zVglAHdC9Y0aQFYXzduIDP70_LfabBI0egKdlivVu7SQ-0UIzqVP5ddSchmq9gorauvjoMcPnfwmQa0qqM97VhszPBgYCHCcBYFq8w2LY_vudoA_yZjvioQOy0y9WSlNcZ722-EEHjpHJsg7TUX6Yp4HZq0B5TPSeKwszlZuFJQybIrMTbkUw-_jMeKMH8DbwVME4SmZy12bQGhid0lPwcmUORS7rs4cnyWiz7A2PIjs2IWp4ib55HwL3QZWRVQ-XD9nN8dIFNtdRR_XWU4o3zCw9vWTJaQRIt-3ECT15wiu1NYvQvwUHIhpyRIIkVCJ6DvaDPkfq6DvbKj4pgiy_ybVp5ptY2R4bIcwseMNh9-5R7BgsoKtPP4tVIXyYBZYlXpml5tEEZKX3duTHjexOVn_-9ewBlxxXvLUifqauorq9YwcsJYfNg1Pxg5MS1aAS2gLLRgC2P34Fk-U2jAasNEyEZ2Cf-BR0wjYG9dGyrCOCiJycqaZk_sxydEDjrMV0XNYR2gUfkuUTgwDJZ_TQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/get-user",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"get-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDlhYmE2NmJjZjQxMjUyMjQ1YjYxM2Y3YzFlNTdmZDRjMTc2Yjg5ZDhmNzZkZjhmYjc5NjI3ZWJkZDkyZGJmNzNjNWNhZmJhZjU5NjM4ZTUiLCJpYXQiOjE2MDQ5MjAxNzMsIm5iZiI6MTYwNDkyMDE3MywiZXhwIjoxNjM2NDU2MTczLCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.ahPeqUIzWNdIJVwU8YwEBwiQ4ZdEY01iDf6DyI5c1ro72YGPfdMM3CD1AtH5nHJs6RC0qMVQ-1oUyGslyvwmjYrnnXZEjVzyRqkIv5gk33BbEeYsJ05YvwgaTQzemFSDxBd8IZJow1neS9r_OOfOWXNhVnhOT5WCvpPaCyiwIQEfTeQfezSm_GfXD8closBAj0AIVQWGo7LvzEOKKDkZ3oWpNe3A7LA5Z1OBcSNawr4WrSpdlDuAcurrvSyNHoiFHjxWrv9QEilTQ_43aDT8mmTFL2iXLAF2Wbqx-huHndAXNRJBBDnZpIxoIScObDBV5m_6sIq0edei0iJvglQ-GKIks89OvN6HuyI3i11OvyzPa8WaHxijRkb3h4N6l1oqvA-SjEHDRu4fAvkgrPCXIbeVTWwyMlOXS7q3hQa-04ul72wuTl_0elrGL9Fi6fS3tc4cjHoluQ5FDgNTuX2Xb78wpZBvfR_yO7jYEvvWxvpiKC1vWQPfz-v4dmvGDUSCHmf38hR_-kg8dfI-CF0G5d9ZZQjsJCYACeTukHrHnlrjyLwBLgIZhLGwUOYLnpUIvIWU0amixisd-tuJUu17yg5eQXsxQRBgRf3JWRGvwvyfiqgapBXEp53LcenXLCjJJuygVnHtI8SSNOn-sEwF_LiUk8_c7ic067S76Im76N4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"David Kocharyan\",\r\n    \"phone\": \"2222222222222222\",\r\n    \"email\": \"david@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/edit",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"edit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDlhYmE2NmJjZjQxMjUyMjQ1YjYxM2Y3YzFlNTdmZDRjMTc2Yjg5ZDhmNzZkZjhmYjc5NjI3ZWJkZDkyZGJmNzNjNWNhZmJhZjU5NjM4ZTUiLCJpYXQiOjE2MDQ5MjAxNzMsIm5iZiI6MTYwNDkyMDE3MywiZXhwIjoxNjM2NDU2MTczLCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.ahPeqUIzWNdIJVwU8YwEBwiQ4ZdEY01iDf6DyI5c1ro72YGPfdMM3CD1AtH5nHJs6RC0qMVQ-1oUyGslyvwmjYrnnXZEjVzyRqkIv5gk33BbEeYsJ05YvwgaTQzemFSDxBd8IZJow1neS9r_OOfOWXNhVnhOT5WCvpPaCyiwIQEfTeQfezSm_GfXD8closBAj0AIVQWGo7LvzEOKKDkZ3oWpNe3A7LA5Z1OBcSNawr4WrSpdlDuAcurrvSyNHoiFHjxWrv9QEilTQ_43aDT8mmTFL2iXLAF2Wbqx-huHndAXNRJBBDnZpIxoIScObDBV5m_6sIq0edei0iJvglQ-GKIks89OvN6HuyI3i11OvyzPa8WaHxijRkb3h4N6l1oqvA-SjEHDRu4fAvkgrPCXIbeVTWwyMlOXS7q3hQa-04ul72wuTl_0elrGL9Fi6fS3tc4cjHoluQ5FDgNTuX2Xb78wpZBvfR_yO7jYEvvWxvpiKC1vWQPfz-v4dmvGDUSCHmf38hR_-kg8dfI-CF0G5d9ZZQjsJCYACeTukHrHnlrjyLwBLgIZhLGwUOYLnpUIvIWU0amixisd-tuJUu17yg5eQXsxQRBgRf3JWRGvwvyfiqgapBXEp53LcenXLCjJJuygVnHtI8SSNOn-sEwF_LiUk8_c7ic067S76Im76N4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"current_password\":\"1234567\",\r\n    \"password\":\"123456789\",\r\n    \"password_confirmation\":\"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://admin.3des.ca/api/v1/user/change-password",
+							"protocol": "https",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Faq",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://admin.3des.ca/api/v1/faq-get?limit=1&page=2",
+					"protocol": "http",
+					"host": [
+						"admin",
+						"3des",
+						"ca"
+					],
+					"path": [
+						"api",
+						"v1",
+						"faq-get"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Faq 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://admin.3des.ca/api/v1/faq-get",
+							"protocol": "http",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"faq-get"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Aug 2020 08:35:45 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload;"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer-when-downgrade"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\",\n    \"data\": {\n        \"faq\": [\n            {\n                \"question\": \"Test Question 0\",\n                \"answer\": \"Test Answer 0\"\n            },\n            {\n                \"question\": \"Test Question 1\",\n                \"answer\": \"Test Answer 1\"\n            }\n        ]\n    },\n    \"status\": true\n}"
+				},
+				{
+					"name": "Get Faq 422",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://admin.3des.ca/api/v1/faq-get",
+							"protocol": "http",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"faq-get"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Aug 2020 08:41:32 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload;"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer-when-downgrade"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"FAQ Not Found\",\n    \"data\": [],\n    \"status\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Video",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://admin.3des.ca/api/v1/video-get",
+					"protocol": "http",
+					"host": [
+						"admin",
+						"3des",
+						"ca"
+					],
+					"path": [
+						"api",
+						"v1",
+						"video-get"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Video 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://admin.3des.ca/api/v1/video-get",
+							"protocol": "http",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"video-get"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Aug 2020 08:45:39 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload;"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer-when-downgrade"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\",\n    \"data\": {\n        \"video\": {\n            \"link\": \"uploads/video/video.mp4\"\n        }\n    },\n    \"status\": true\n}"
+				},
+				{
+					"name": "Get Video 422",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://admin.3des.ca/api/v1/video-get",
+							"protocol": "http",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"video-get"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 28 Aug 2020 08:38:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.33"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload;"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer-when-downgrade"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"FAQ Not Found\",\n    \"data\": [],\n    \"status\": false\n}"
+				}
+			]
+		},
+		{
+			"name": "Subscriber Store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"name\": \"Joe\",\r\n    \"email\": \"admiassn@gmail.com\"\r\n}"
+				},
+				"url": {
+					"raw": "https://admin.3des.ca/api/v1/subscriber-store",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"3des",
+						"ca"
+					],
+					"path": [
+						"api",
+						"v1",
+						"subscriber-store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Concact Store",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"first_name\": \"Joe\",\r\n    \"last_name\": \"Dhoe\",\r\n    \"phone\": \"+37499099248\",\r\n    \"email\": \"admisn@gmail.com\",\r\n    \"message\": \"lorem ipsum\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://admin.3des.ca/api/v1/contact-store",
+					"protocol": "http",
+					"host": [
+						"admin",
+						"3des",
+						"ca"
+					],
+					"path": [
+						"api",
+						"v1",
+						"contact-store"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Concact Store 200",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"first_name\": \"Joe\",\r\n    \"last_name\": \"Dhoe\",\r\n    \"phone\": \"+37499099248\",\r\n    \"email\": \"admisn@gmail.com\",\r\n    \"message\": \"lorem ipsum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://admin.3des.ca/api/v1/contact-store",
+							"protocol": "http",
+							"host": [
+								"admin",
+								"3des",
+								"ca"
+							],
+							"path": [
+								"api",
+								"v1",
+								"contact-store"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Aug 2020 10:08:29 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 28 Aug 2020 10:08:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"\",\n    \"data\": [],\n    \"status\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Shipping Methods",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://admin.3des.ca/api/v1/shipping-get",
+					"protocol": "http",
+					"host": [
+						"admin",
+						"3des",
+						"ca"
+					],
+					"path": [
+						"api",
+						"v1",
+						"shipping-get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Promo Code Calculate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code\":\"iw9Glf\",\r\n    \"price\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://admin.3des.ca/api/v1/promo-code",
+					"protocol": "https",
+					"host": [
+						"admin",
+						"3des",
+						"ca"
+					],
+					"path": [
+						"api",
+						"v1",
+						"promo-code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Countries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://admin.3des.ca/api/v1/country-get",
+					"protocol": "http",
+					"host": [
+						"admin",
+						"3des",
+						"ca"
+					],
+					"path": [
+						"api",
+						"v1",
+						"country-get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get State/Province",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://admin.3des.ca/api/v1/state-get?country=1",
+					"protocol": "http",
+					"host": [
+						"admin",
+						"3des",
+						"ca"
+					],
+					"path": [
+						"api",
+						"v1",
+						"state-get"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
